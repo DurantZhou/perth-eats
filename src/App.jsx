@@ -403,13 +403,20 @@ export default function App() {
   const runAI = async () => {
     if(!aiQuery.trim())return;
     setAiLoading(true);setAiErr("");setAiResults([]);
-    try {
-      const res=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:3000,messages:[{role:"user",content:`Perth WA restaurant expert. User wants: "${aiQuery}". Return ONLY a JSON array (no markdown) of 20 real Perth restaurants. Each: {"name":"...","cuisine":"...","suburb":"...","price":1-4,"meal":["lunch","dinner","brunch"],"vibe":"max 8 words","rating":4.0-5.0}. price: 1=under $20,2=$20-40,3=$40-70,4=$70+. Cuisine from: ${allCuisines.join(",")}. Only real restaurants. Exclude: ${restaurants.map(r=>r.name).join(",")}.`}]})});
-      const data=await res.json();
-      const text=data.content?.map(b=>b.text||"").join("").replace(/```json|```/g,"").trim();
-      setAiResults(JSON.parse(text));
-    } catch{setAiErr("Couldn't fetch — try again.");}
-    setAiLoading(false);
+  try {
+    const res = await fetch('/api/ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: aiQuery,
+        cuisines: allCuisines.join(','),
+        existing: restaurants.map(r => r.name).join(',')
+      })
+    });
+    const data = await res.json();
+    setAiResults(data);
+  } catch { setAiErr("Couldn't fetch — try again."); }
+  setAiLoading(false);
   };
 
   const addFromAI = r => { const id=Date.now()+Math.random(); setRestaurants(p=>[...p,{...r,id}]); setSaved(s=>({...s,[id]:true})); setAiResults(p=>p.filter(x=>x.name!==r.name)); };
