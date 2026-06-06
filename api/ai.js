@@ -2,15 +2,10 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
   if (req.method === 'OPTIONS') { res.status(200).end(); return; }
-  if (req.method !== 'POST') { res.status(405).json({ error: 'Method not allowed' }); return; }
 
   const { query, cuisines, existing } = req.body || {};
-  if (!query) { res.status(400).json({ error: 'No query provided' }); return; }
-
   const key = process.env.ANTHROPIC_KEY;
-  if (!key) { res.status(500).json({ error: 'API key not configured' }); return; }
 
   try {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
@@ -21,17 +16,22 @@ export default async function handler(req, res) {
         'x-api-key': key
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 3000,
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 2000,
         messages: [{
           role: 'user',
-          content: `Perth WA restaurant expert. User wants: "${query}". Return ONLY a JSON array (no markdown, no backticks) of 20 real Perth restaurants. Each object: {"name":"...","cuisine":"...","suburb":"...","price":1-4,"meal":["lunch","dinner","brunch"],"vibe":"max 8 words","rating":4.0-5.0}. price: 1=under $20, 2=$20-40, 3=$40-70, 4=$70+. Cuisine from: ${cuisines || 'Japanese,Modern Australian,Asian,Italian,Mexican,Thai,Vietnamese,Indian,French,Greek,Middle Eastern,Latin American,Cafe / Brunch,Other'}. Only real known Perth restaurants. Exclude: ${existing || ''}.`
+          content: `Perth WA restaurant expert. User wants: "${query}". Return ONLY a valid JSON array, no markdown, no explanation, just the array. Include 10 real Perth restaurants. Each object must have exactly these fields: {"name":"string","cuisine":"string","suburb":"string","price":2,"meal":["dinner"],"vibe":"short description","rating":4.5}. Cuisine must be one of: ${cuisines}. Only exclude: ${existing}.`
         }]
       })
     });
+
     const data = await r.json();
-    const text = data.content?.map(b => b.text || '').join('').replace(/```json|```/g, '').trim();
-    const parsed = JSON.parse(text);
+    if (data.error) {
+      return res.status(500).json({ error: data.error.message });
+    }
+    const text = data.content?.[0]?.text?.trim() || '[]';
+    const clean = text.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(clean);
     res.status(200).json(parsed);
   } catch(e) {
     res.status(500).json({ error: e.message });
