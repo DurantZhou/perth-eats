@@ -53,18 +53,16 @@ const placeCache = {};
 async function fetchGooglePlace(r) {
   if (placeCache[r.id]) return placeCache[r.id];
   try {
-    const searchRes = await fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${encodeURIComponent(r.name + " " + r.suburb + " Perth WA")}&inputtype=textquery&fields=place_id,name,rating,photos&key=${GOOGLE_KEY}`);
-    const searchData = await searchRes.json();
-    const place = searchData.candidates?.[0];
-    if (!place) return null;
-    const result = {
-      rating: place.rating || null,
-      photoUrl: place.photos?.[0] ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&photoreference=${place.photos[0].photo_reference}&key=${GOOGLE_KEY}` : null,
-    };
-    placeCache[r.id] = result;
-    return result;
-  } catch { return null; }
+    const res = await fetch(`/api/places?name=${encodeURIComponent(r.name)}&suburb=${encodeURIComponent(r.suburb)}`);
+    const data = await res.json();
+    if (data.photo || data.rating) {
+      placeCache[r.id] = data;
+      return data;
+    }
+  } catch {}
+  return null;
 }
+
 
 const getPhoto = (r) => CUISINE_PHOTOS[r.cuisine] || CUISINE_PHOTOS["Other"];
 const CUISINE_PHOTOS = {"Japanese":"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80","Modern Australian":"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80","Asian":"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&q=80","Italian":"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80","Mexican":"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80","Thai":"https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=600&q=80","Vietnamese":"https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=80","Indian":"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80","French":"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80","Greek":"https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80","Middle Eastern":"https://images.unsplash.com/photo-1498579397066-22750a3cb424?w=600&q=80","Latin American":"https://images.unsplash.com/photo-1604467794349-0b74285de7e7?w=600&q=80","Cafe / Brunch":"https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&q=80","Korean":"https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80","Chinese":"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80","Spanish":"https://images.unsplash.com/photo-1515443961218-a51367888e4b?w=600&q=80","Seafood":"https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=600&q=80","Steakhouse":"https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=80","Pizza":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80","Burger":"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80","Vegetarian":"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80","Dessert":"https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80","Other":"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80"};
@@ -441,7 +439,7 @@ export default function App() {
     const [imgLoaded, setImgLoaded] = useState(false);
     useEffect(()=>{
       fetchGooglePlace(r).then(data=>{
-        if(data?.photoUrl) setGPhoto(data.photoUrl);
+        if(data?.photo) setGPhoto(data.photo);
         if(data?.rating) setGRating(data.rating);
       });
     },[r.id]);
