@@ -14,7 +14,7 @@ const AVATARS = ["🧑‍🍳","👩‍🍳","🧔","👩","🧑","👨","🙋",
 const CEMOJI = {"Japanese":"🍜","Modern Australian":"🦘","Asian":"🥢","Italian":"🍝","Mexican":"🌮","Thai":"🍛","Vietnamese":"🥖","Indian":"🫙","French":"🥐","Greek":"🫒","Middle Eastern":"🧆","Latin American":"🥑","Cafe / Brunch":"☕","Korean":"🥩","Chinese":"🥟","Spanish":"🥘","Seafood":"🦞","Steakhouse":"🥩","Pizza":"🍕","Burger":"🍔","Vegetarian":"🥗","Dessert":"🍰"};
 const PAL = {"Japanese":["#E1F5EE","#085041"],"Modern Australian":["#EEEDFE","#3C3489"],"Asian":["#FAEEDA","#633806"],"Italian":["#FAECE7","#993C1D"],"Mexican":["#FCE8E8","#A32D2D"],"Thai":["#EAF3DE","#27500A"],"Vietnamese":["#E6F1FB","#0C447C"],"Indian":["#FBEAF0","#72243E"],"French":["#F1EFE8","#5F5E5A"],"Greek":["#FAEEDA","#633806"],"Middle Eastern":["#EAF3DE","#27500A"],"Latin American":["#FAECE7","#993C1D"],"Cafe / Brunch":["#FBEAF0","#72243E"],"Korean":["#FFE8E8","#8B1A1A"],"Chinese":["#FFF0DA","#7A4A00"],"Spanish":["#FAF0E6","#8B4513"],"Seafood":["#E0F4FF","#0056A0"],"Steakhouse":["#F5E8E0","#6B3A2A"],"Pizza":["#FFF4E0","#8B5E00"],"Burger":["#FFF0E0","#7A4500"],"Vegetarian":["#EAFAEA","#1A6B1A"],"Dessert":["#FDE8F5","#8B2B72"],"Other":["#F1EFE8","#444"]};
 const CUISINE_PHOTOS = {"Japanese":"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80","Modern Australian":"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80","Asian":"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&q=80","Italian":"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80","Mexican":"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80","Thai":"https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=600&q=80","Vietnamese":"https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=80","Indian":"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80","French":"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80","Greek":"https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80","Middle Eastern":"https://images.unsplash.com/photo-1498579397066-22750a3cb424?w=600&q=80","Latin American":"https://images.unsplash.com/photo-1604467794349-0b74285de7e7?w=600&q=80","Cafe / Brunch":"https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600&q=80","Korean":"https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80","Chinese":"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80","Spanish":"https://images.unsplash.com/photo-1515443961218-a51367888e4b?w=600&q=80","Seafood":"https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=600&q=80","Steakhouse":"https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=80","Pizza":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80","Burger":"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80","Vegetarian":"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80","Dessert":"https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80","Other":"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80"};
-const SUBURB_COORDS = {"Northbridge":[-31.947,115.857],"Perth CBD":[-31.952,115.861],"Subiaco":[-31.948,115.827],"Victoria Park":[-31.983,115.900],"Highgate":[-31.939,115.865],"Elizabeth Quay":[-31.958,115.859],"Mount Hawthorn":[-31.926,115.841],"Fremantle":[-32.057,115.744],"Mount Lawley":[-31.931,115.870],"Leederville":[-31.937,115.844],"South Perth":[-31.974,115.868],"East Perth":[-31.947,115.875],"West Perth":[-31.948,115.849],"Scarborough":[-31.893,115.758],"Nedlands":[-31.978,115.804],"Como":[-31.983,115.862],"Applecross":[-32.010,115.843],"Inglewood":[-31.919,115.870],"Wembley":[-31.924,115.817],"Cottesloe":[-31.993,115.756],"Shafto Lane":[-31.953,115.861]};
+const SUBURB_COORDS = {"Northbridge":[-31.947,115.857],"Perth CBD":[-31.952,115.861],"Subiaco":[-31.948,115.827],"Victoria Park":[-31.983,115.900],"Highgate":[-31.939,115.865],"Elizabeth Quay":[-31.958,115.859],"Mount Hawthorn":[-31.926,115.841],"Fremantle":[-32.057,115.744],"Mount Lawley":[-31.931,115.870],"Leederville":[-31.937,115.844],"South Perth":[-31.974,115.868],"East Perth":[-31.947,115.875],"West Perth":[-31.948,115.849],"Scarborough":[-31.893,115.758],"Nedlands":[-31.978,115.804],"Como":[-31.983,115.862],"Applecross":[-32.010,115.843],"Inglewood":[-31.919,115.870],"Wembley":[-31.924,115.817],"Cottesloe":[-31.993,115.756],"Shafto Lane":[-31.953,115.861],"Bentley":[-31.997,115.917],"Burswood":[-31.960,115.897],"Cannington":[-31.993,115.936],"Carlisle":[-31.974,115.906],"Claremont":[-31.981,115.782],"Cloverdale":[-31.974,115.930],"Belmont":[-31.943,115.928],"Bayswater":[-31.920,115.914],"Karrinyup":[-31.869,115.793],"Hillarys":[-31.806,115.739],"Joondalup":[-31.745,115.766],"Morley":[-31.888,115.893],"Osborne Park":[-31.899,115.829],"Innaloo":[-31.888,115.796],"Balcatta":[-31.872,115.829],"Bassendean":[-31.906,115.942],"Beckenham":[-32.013,115.950],"Beechboro":[-31.858,115.930],"Bull Creek":[-32.052,115.853],"Canning Vale":[-32.053,115.912],"Dianella":[-31.885,115.872],"Doubleview":[-31.890,115.776],"East Fremantle":[-32.033,115.764],"Floreat":[-31.932,115.797],"Glendalough":[-31.914,115.828],"Hamilton Hill":[-32.074,115.789],"Joondanna":[-31.905,115.843],"Karawara":[-32.004,115.876],"Lathlain":[-31.963,115.906],"Manning":[-31.988,115.876],"Midland":[-31.889,116.007],"Mirrabooka":[-31.863,115.862],"Mosman Park":[-31.997,115.769],"Mount Lawley":[-31.931,115.870],"Mount Pleasant":[-32.007,115.847],"Myaree":[-32.022,115.820],"Nollamara":[-31.869,115.844],"North Fremantle":[-32.043,115.739],"North Perth":[-31.926,115.858],"O'Connor":[-32.040,115.797],"Palmyra":[-32.036,115.793],"Rivervale":[-31.963,115.920],"Rockingham":[-32.278,115.730],"Shenton Park":[-31.950,115.800],"St James":[-31.983,115.906],"Stirling":[-31.870,115.847],"Swanbourne":[-31.977,115.764],"Thornlie":[-32.040,115.953],"Tuart Hill":[-31.893,115.836],"Victoria Park":[-31.983,115.900],"Willagee":[-32.040,115.806],"Willeton":[-32.052,115.866],"Winthrop":[-32.052,115.834]};
 const DICE_FACES = ["⚀","⚁","⚂","⚃","⚄","⚅"];
 const BLANK_FORM = {name:"",cuisine:"Japanese",suburb:"",price:2,meal:[],vibe:"",rating:""};
 const placeCache = {};
@@ -117,6 +117,18 @@ function MapView({restaurants,saved,reactions}) {
   const markers = useRef([]);
   const [ready,setReady] = useState(!!window.L);
   const [selected,setSelected] = useState(null);
+  const [mapSearch,setMapSearch] = useState("");
+  const [mapCuisine,setMapCuisine] = useState("All");
+  const [showSavedOnly,setShowSavedOnly] = useState(false);
+
+  const cuisineList = useMemo(()=>["All",...new Set(restaurants.map(r=>r.cuisine))],[restaurants]);
+
+  const mapFiltered = useMemo(()=>{
+    let list = showSavedOnly ? restaurants.filter(r=>saved[r.id]) : restaurants.filter(r=>saved[r.id]);
+    if(mapSearch) list=list.filter(r=>r.name.toLowerCase().includes(mapSearch.toLowerCase())||r.suburb.toLowerCase().includes(mapSearch.toLowerCase()));
+    if(mapCuisine!=="All") list=list.filter(r=>r.cuisine===mapCuisine);
+    return list;
+  },[restaurants,saved,mapSearch,mapCuisine,showSavedOnly]);
 
   useEffect(()=>{
     if(window.L){setReady(true);return;}
@@ -128,7 +140,7 @@ function MapView({restaurants,saved,reactions}) {
     if(!ready||!mapRef.current)return;
     if(!mapInst.current){mapInst.current=window.L.map(mapRef.current).setView([-31.952,115.861],13);window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:19}).addTo(mapInst.current);}
     markers.current.forEach(m=>m.remove());markers.current=[];
-    restaurants.filter(r=>saved[r.id]).forEach(r=>{
+    mapFiltered.forEach(r=>{
       const c=SUBURB_COORDS[r.suburb];if(!c)return;
       const jit=[c[0]+(Math.random()-.5)*.003,c[1]+(Math.random()-.5)*.003];
       const rxn=reactions[r.id];const rxnE=rxn?REACTIONS.find(([k])=>k===rxn)?.[1]:"";
@@ -136,26 +148,45 @@ function MapView({restaurants,saved,reactions}) {
       const m=window.L.marker(jit,{icon}).addTo(mapInst.current);
       m.on("click",()=>setSelected(r));markers.current.push(m);
     });
-  },[ready,restaurants,saved,reactions]);
+  },[ready,mapFiltered,reactions]);
 
   return (
-    <div style={{height:"calc(100vh - 117px)",position:"relative"}}>
-      {!ready&&<div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100%",color:"#aaa"}}>Loading map...</div>}
-      <div ref={mapRef} style={{height:"100%",width:"100%",display:ready?"block":"none"}}/>
-      {selected&&(
-        <div style={{position:"absolute",bottom:12,left:12,right:12,zIndex:400,background:"#fff",borderRadius:12,padding:"12px 14px",boxShadow:"0 2px 12px rgba(0,0,0,.15)"}}>
-          <div style={{display:"flex",gap:10,alignItems:"flex-start"}}>
-            <img src={getPhoto(selected)} style={{width:60,height:60,objectFit:"cover",borderRadius:8,flexShrink:0}} onError={e=>e.target.style.display="none"}/>
-            <div style={{flex:1}}>
-              <span style={{background:bg(selected.cuisine),color:tc(selected.cuisine),fontSize:11,fontWeight:600,padding:"2px 8px",borderRadius:20,display:"inline-flex",alignItems:"center",gap:4,marginBottom:4}}>{ceq(selected.cuisine)} {selected.cuisine}</span>
-              <div style={{fontWeight:600,fontSize:15,color:"#222"}}>{selected.name}</div>
-              <div style={{fontSize:12,color:"#666",marginTop:2}}>{selected.vibe} · 📍 {selected.suburb} · <span style={{color:"#3B6D11",fontWeight:600}}>{PRICE_SYM[selected.price]} {PRICE_LABELS[selected.price]}</span></div>
-            </div>
-            <button onClick={()=>setSelected(null)} style={{background:"none",border:"none",fontSize:18,color:"#aaa",cursor:"pointer"}}>✕</button>
-          </div>
+    <div style={{height:"calc(100vh - 117px)",display:"flex",flexDirection:"column"}}>
+      {/* Search bar */}
+      <div style={{padding:"10px 12px",background:"#fff",borderBottom:"1px solid #eee",display:"flex",flexDirection:"column",gap:8,zIndex:200}}>
+        <div style={{position:"relative"}}>
+          <span style={{position:"absolute",left:10,top:"50%",transform:"translateY(-50%)",fontSize:14,color:"#bbb"}}>🔍</span>
+          <input style={{width:"100%",padding:"8px 10px 8px 32px",borderRadius:8,border:"1px solid #ddd",fontSize:13,boxSizing:"border-box"}}
+            placeholder="Search saved restaurants..." value={mapSearch} onChange={e=>setMapSearch(e.target.value)}/>
         </div>
-      )}
-      {!Object.values(saved).some(Boolean)&&<div style={{position:"absolute",top:"40%",left:0,right:0,textAlign:"center",color:"#888",pointerEvents:"none"}}><div style={{fontSize:32,marginBottom:8}}>⭐</div><div style={{fontWeight:600}}>Save restaurants to see them on the map</div></div>}
+        <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+          <select style={{padding:"6px 10px",borderRadius:8,border:"1px solid #ddd",fontSize:12,background:"#fff",cursor:"pointer"}} value={mapCuisine} onChange={e=>setMapCuisine(e.target.value)}>
+            {cuisineList.map(c=><option key={c} value={c}>{c==="All"?"All cuisines":c}</option>)}
+          </select>
+          <span style={{fontSize:12,color:"#888"}}>{mapFiltered.length} pin{mapFiltered.length!==1?"s":""} shown</span>
+          {(mapSearch||mapCuisine!=="All")&&<button onClick={()=>{setMapSearch("");setMapCuisine("All");}} style={{padding:"5px 10px",borderRadius:8,border:"1px solid #F0997B",background:"#fff",color:"#993C1D",fontSize:12,cursor:"pointer"}}>Clear ✕</button>}
+        </div>
+      </div>
+      {/* Map */}
+      <div style={{flex:1,position:"relative"}}>
+        {!ready&&<div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100%",color:"#aaa"}}>Loading map...</div>}
+        <div ref={mapRef} style={{height:"100%",width:"100%",display:ready?"block":"none"}}/>
+        {selected&&(
+          <div style={{position:"absolute",bottom:12,left:12,right:12,zIndex:400,background:"#fff",borderRadius:12,padding:"12px 14px",boxShadow:"0 2px 12px rgba(0,0,0,.15)"}}>
+            <div style={{display:"flex",gap:10,alignItems:"flex-start"}}>
+              <img src={getPhoto(selected)} style={{width:60,height:60,objectFit:"cover",borderRadius:8,flexShrink:0}} onError={e=>e.target.style.display="none"}/>
+              <div style={{flex:1}}>
+                <span style={{background:bg(selected.cuisine),color:tc(selected.cuisine),fontSize:11,fontWeight:600,padding:"2px 8px",borderRadius:20,display:"inline-flex",alignItems:"center",gap:4,marginBottom:4}}>{ceq(selected.cuisine)} {selected.cuisine}</span>
+                <div style={{fontWeight:600,fontSize:15,color:"#222"}}>{selected.name}</div>
+                <div style={{fontSize:12,color:"#666",marginTop:2}}>{selected.vibe} · 📍 {selected.suburb} · <span style={{color:"#3B6D11",fontWeight:600}}>{PRICE_SYM[selected.price]} {PRICE_LABELS[selected.price]}</span></div>
+                {selected.rating&&<div style={{fontSize:12,color:"#888",marginTop:2}}>⭐ {selected.rating}</div>}
+              </div>
+              <button onClick={()=>setSelected(null)} style={{background:"none",border:"none",fontSize:18,color:"#aaa",cursor:"pointer"}}>✕</button>
+            </div>
+          </div>
+        )}
+        {mapFiltered.length===0&&<div style={{position:"absolute",top:"40%",left:0,right:0,textAlign:"center",color:"#888",pointerEvents:"none",zIndex:300}}><div style={{fontSize:32,marginBottom:8}}>⭐</div><div style={{fontWeight:600}}>{Object.values(saved).some(Boolean)?"No restaurants match your search":"Save restaurants to see them on the map"}</div></div>}
+      </div>
     </div>
   );
 }
